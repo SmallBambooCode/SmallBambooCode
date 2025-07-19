@@ -35,4 +35,4 @@ Outside of research, I'm fascinated by **music, philosophy, technology, and read
 
 ### 📫 Connect with Me
 
-You can learn more about my work on my personal homepage: [smallbamboo.cn](https://www.smallbamboo.cn/)
+You can learn more about my work on my personal homepage: [www.smallbamboo.cn](https://www.smallbamboo.cn/)
