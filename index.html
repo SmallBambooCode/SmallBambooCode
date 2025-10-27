@@ -406,6 +406,63 @@
                 font-size: 20px;
             }
         }
+
+        /* 滚动条幅 */
+        .scroll-banner {
+            background: #f0f0f0;
+            padding: 15px 0;
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            text-align: center;
+        }
+
+        .scroll-banner-content {
+            white-space: nowrap;
+            color: #666;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            display: inline-block;
+            padding: 0 20px;
+        }
+
+        /* 只在内容溢出时添加滚动动画 */
+        @media (max-width: 1024px) {
+            .scroll-banner {
+                text-align: left;
+            }
+            
+            .scroll-banner-content {
+                animation: scroll 20s linear infinite;
+            }
+            
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-50%);
+                }
+            }
+            
+            /* 复制内容以实现无缝滚动 */
+            .scroll-banner-content::after {
+                content: "  Exploration  Logic  System  Coherence  Understanding  Boundary  Integrity  Independence  Creation  Order  Balance  Light";
+            }
+        }
+
+        /* 手机端调整 */
+        @media (max-width: 768px) {
+            .scroll-banner {
+                padding: 12px 0;
+            }
+            
+            .scroll-banner-content {
+                font-size: 12px;
+                animation: scroll 15s linear infinite;
+            }
+        }
     </style>
 </head>
 <body>
@@ -522,6 +579,12 @@
         	<a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023024410号-2</a>
         </p>
     </footer>
+
+    <div class="scroll-banner">
+        <div class="scroll-banner-content">
+            Exploration  Logic  System  Coherence  Understanding  Boundary  Integrity  Independence  Creation  Order  Balance  Light
+        </div>
+    </div>
 
     <script>
 		const introText = document.getElementById('introText');
