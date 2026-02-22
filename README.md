@@ -15,7 +15,7 @@ I'm an undergraduate researcher in **Computer Vision**, specializing in **image 
 
 * **Languages:** Python, C, C++
 * **AI Frameworks:** PyTorch, OpenCV, Flask
-* **Expertise:** Computer Vision (model re-implementation/improvement), Image Segmentation, Image Classification, Thesis Writing.
+* **Expertise:** Computer Vision (model re-implementation/improvement), Image Segmentation, Image Classification, Paper Writing.
 
 ---
 
@@ -24,6 +24,7 @@ I'm an undergraduate researcher in **Computer Vision**, specializing in **image 
 * **Provincial First Prize** in the 15th Lanqiao Cup (Programming Contest)
 * **National Finalist** in the 2025 National College Students Statistical Modeling Contest
 * **Software Copyrights:** Awarded for AI algorithms in urban green space extraction and ovarian cancer diagnosis.
+* More Achievements: [Click here](https://notes.smallbamboo.cn/undergraduate-achievements-archive/).
 
 ---
 
