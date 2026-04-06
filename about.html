@@ -1,19 +1,19 @@
 <!doctype html>
 <html style='font-size:16px !important'>
 <head>
-<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-
-<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
-.mac-os-11 { --title-bar-height:28px; }
-html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'><style type='text/css'>html {overflow-x: initial !important;}</style>
+<style type='text/css'  id="style-base">:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, "Segoe UI Emoji", "SF Pro", sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
 iframe { margin: auto; }
 a.url { word-break: break-all; }
 a:active, a:hover { outline: 0px; }
 .in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
 #write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
 #write.first-line-indent p { text-indent: 2em; }
-#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li p, #write.first-line-indent p *, #write.first-line-indent svg * { text-indent: 0px; }
 #write.first-line-indent li { margin-left: 2em; }
 .for-image #write { padding-left: 8px; padding-right: 8px; }
 body.typora-export { padding-left: 30px; padding-right: 30px; }
@@ -29,11 +29,13 @@ img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
 button, input, select, textarea { color: inherit; font: inherit; }
 input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
 *, ::after, ::before { box-sizing: border-box; }
-#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
-#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; position: relative; }
+#write svg h1, #write svg h2, #write svg h3, #write svg h4, #write svg h5, #write svg h6, #write svg p { position: static; white-space: nowrap; overflow: visible; }
+foreignobject { overflow: visible; }
 p { line-height: inherit; }
 h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
 p { orphans: 4; }
+li p { orphans: 1; }
 h1 { font-size: 2rem; }
 h2 { font-size: 1.8rem; }
 h3 { font-size: 1.6rem; }
@@ -86,12 +88,14 @@ blockquote > :first-child, li > :first-child { margin-top: 0px; }
 #write .footnote-line { white-space: pre-wrap; }
 @media print {
   body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
-  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
   .typora-export * { -webkit-print-color-adjust: exact; }
   .typora-export #write { break-after: avoid; }
   .typora-export #write::after { height: 0px; }
   .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
   .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
 }
 .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
 a img, img a { cursor: pointer; }
@@ -158,9 +162,10 @@ mark .md-meta { color: rgb(0, 0, 0); }
 .md-fences.md-fences-math { font-size: 1em; }
 .md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
 .md-fences-advanced:not(.md-focus) { background: inherit; }
+.mermaid-svg { margin: auto; }
 .typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
 .typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
-.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
 .typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
 @media screen and (max-width: 1024px) {
   .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
@@ -168,7 +173,7 @@ mark .md-meta { color: rgb(0, 0, 0); }
 @media screen and (max-width: 800px) {
   .typora-export-sidebar { display: none; }
 }
-.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
 .outline-content ul { margin-top: 0px; margin-bottom: 0px; }
 .outline-content strong { font-weight: 400; }
 .outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
@@ -200,9 +205,23 @@ mark .md-meta { color: rgb(0, 0, 0); }
 .typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
 .md-inline-math-container mjx-container { zoom: 0.95; }
 mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
 
-
-
+</style>
+<style type='text/css'  id="style-theme_css">
 
 /* Webfont: HKGrotesk-Light *//* Webfont: HKGrotesk-LightItalic *//* Webfont: HKGrotesk-Regular *//* Webfont: HKGrotesk-Italic *//* Webfont: HKGrotesk-Medium *//* Webfont: HKGrotesk-MediumItalic *//* Webfont: HKGrotesk-Bold *//* Webfont: HKGrotesk-BoldItalic *//* Webfont: OfficeCodePro-Light *//* Webfont: OfficeCodePro-LightItalic *//* Webfont: OfficeCodePro-Regular *//* Webfont: OfficeCodePro-Italic *//* Webfont: OfficeCodePro-Bold *//* Webfont: OfficeCodePro-BoldItalic */html {
     background: #FFFFFF;
@@ -300,7 +319,7 @@ h3:hover a.anchor,
 h4:hover a.anchor,
 h5:hover a.anchor,
 h6:hover a.anchor {
-    /*background: url("file:///C://Users//SmallBamboo//AppData//Roaming//images/modules/styleguide/para.png") no-repeat 10px center;*/
+    /*background: url("file:///C://Users//i//AppData//Roaming//images/modules/styleguide/para.png") no-repeat 10px center;*/
     text-decoration: none;
 }
 h1 tt,
@@ -654,14 +673,13 @@ header, .context-menu, .megamenu-content, footer{
 }
 
 
-
-
-
-</style><title>关于我：SmallBamboo</title>
+</style>
+<style type='text/css'  id="style-lp">ol, ul {padding-left: 40px}</style>
 <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
 <script>LA.init({id:"Kfh95AfypnM1f4aE",ck:"Kfh95AfypnM1f4aE",autoTrack:true})</script>
+<title>关于我：SmallBamboo</title>
 </head>
 <body class='typora-export os-windows'><div class='typora-export-content'>
-<div id='write'  class=''><h1 id='关于我smallbamboo'><span>关于我：SmallBamboo</span></h1><p><span>当创建这个Markdown文档后，心中有些迟疑，其实我也不知道该怎么介绍自己。（更新日期：2025年10月22日）</span></p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="https://music.163.com/outchain/player?type=2&amp;id=468176711&amp;auto=0&amp;height=66"></iframe><h2 id='简述'><span>简述</span></h2><p><span>你好，我是在河北的2022年冬奥会举办地长大的水瓶座男生，目前</span><code>{{datetime.now().year - 2005}}</code><span>岁，我我喜欢折腾各种有趣的东西一一无论是计算机、哲学和音乐，还是暂且未知的领域。身为</span><a href='https://notes.smallbamboo.cn/how-to-socialize-with-me-v2.html'><span>INTP-5w6 Sp/So Tritype531（也可能是541）</span></a><span>，我习惯于在输入和输出过程中不断修正和完善自我和成果。我可能体现出“高效”和“完美”的特质，但它们并不是目标本身。我不算外向，但喜欢与志同道合的人交流。理性是起点，理解才是目的。</span></p><p><img src="https://img.smallbamboo.cn/i/2025/05/09/681d81070b27f.jpg" referrerpolicy="no-referrer" alt="INTP.png"></p><p><span>以上图片比较有刻板印象，下面才是真实的我。</span></p><p><span>建立</span><a href='https://www.smallbamboo.cn/projects/'><span>这些网站</span></a><span>的初衷其实是为了逃离那很少被人了解和欣赏的现实，在这个繁杂的互联网世界中拥有一个展示自己的平台，也算是自己精心布置且会一直默默耕耘的一片心中花园吧。</span></p><h2 id='smallbamboo'><span>SmallBamboo？</span></h2><p><span>这个ID是最初购买Minecraft正版时选用的ID，那好像是初中时的事情了。目前小竹（SmallBamboo）这个昵称已经用了很久，之后也不会改变了。</span></p><p><span>为什么选择竹子？我小时在北方生活，见到竹子的频率很低，竹子一般分布于热带、亚热带至暖温带地区，而我生活的地方是温带大陆性季风气候。之所以选择竹子作为自己的昵称，只是欣赏它的美好的品质。</span></p><blockquote><p><span>竹身形挺直，宁折不弯，曰正直； 竹虽有竹节，却不止步，曰奋进； 竹外直中通，襟怀若谷，曰虚怀； 竹有花深埋，素面朝天，曰质朴；竹一生一花，死亦无悔，曰奉献； 竹玉竹临风，顶天立地，曰卓尔；竹虽曰卓尔，却不似松，曰善群； 竹质地犹石，方可成器，曰性坚；竹化作符节，苏武秉持，曰操守； 竹载文传世，任劳任怨，曰担当。</span></p><p><span>——《竹之十德》</span></p></blockquote><h2 id='计算机之缘'><span>计算机之缘</span></h2><p><span>从小学二年级开始，家里就买了台电脑。接触它的第一时间父亲就帮我注册了QQ，开通了QQ空间。从那时起我对计算机便有了最初的兴趣，我被其中很多小游戏吸引。我很乐于探索Windows系统，几乎任何可以点击交互的地方我都能研究一遍，之后由于轻信了刷Q币的套路，系统中病毒了（C盘被删了）。那时的我十分慌张，在家人帮助下重装了系统。从那时起，我开始学习和掌握计算机系统的维护知识。</span></p><p><span>这是我第一次接触到“重装系统”，为此我通过搜索很快就学会了重装系统的方法，正值当时Windows10刚刚发布，我就自己下载镜像，按照网上的教程做好了启动盘，把我的第一台电脑装上了Win10系统。</span></p><p><span>在小学阶段我对编程还没有认识和兴趣，只是很喜欢与同学联机玩Minecraft。由于当时Minecraft实况主比较流行，我也模仿他们，自学剪辑并在优酷上发布了一些与同学游玩的视频，这是我最初做自媒体的经历。</span></p><p><span>在初中阶段，通过在线平台我自学掌握了电脑硬件选购和组装知识。在家人支持下，我组装了我的第二台电脑，并自行升级了显卡以满足游戏需求。初中时，我在视频平台分享了一些自己剪辑和制作的Minecraft视频教程。那时我对计算机网络产生了兴趣，并学会了利用相关技术与同学联机游戏，甚至自行优化了家庭网络设备。</span></p><p><span>高中期间，我开始尝试搭建个人网站，并注册了域名。在建站过程中，我接触并学习了Linux服务器、MySQL数据库、PHP、HTML等技术。</span></p><p><span>高二寒假上网课时，我利用之前搭建网站的技术经验，对网课平台进行了技术研究，从而能够更高效地获取学习资源。</span></p><p><span>高三期间，我搭建并管理了家庭网络，并利用虚拟化技术架设了Minecraft游戏服务器。我还将服务器的闲置性能租赁给其他玩家，获得了一定的收益。</span></p><p><span>高考后，我开始做新的自媒体账号，专注于计算机软硬件评测，并尝试电商运营。我将之前的服务器租赁服务发展为一项个人创业项目，并在业务拓展过程中与合作伙伴共同管理。</span></p><p><span>我目前在河南一所大学攻读人工智能专业。大学期间，我积极参与社团活动并担任学生职务，在学业上取得了优异成绩，如在C语言考试中名列前茅，并在蓝桥杯省赛中获得省一等奖。我保持着高强度的学习热情，并自学了C++等编程语言。</span></p><p><span>从大一下学期开始，我加入了科研团队，专注于人工智能计算机视觉领域。我深入学习了语义分割，并选择了遥感图像语义分割作为主要研究方向。我积极进行模型改进和实验，并在指导老师的带领下参与了论文撰写和发表工作。</span></p><p><span>2025年，我将继续推进科研项目；申请软著；参与统计建模大赛，首次撰写中文论文；积极申请各类科研基金和创新项目均成功立项。我在暑假前期已经完成并初次投出第一篇SCI论文，在开学后不久投出第二篇SCI论文。</span></p><p><span>[未完待续]</span></p><p>&nbsp;</p><h2 id='学业之路'><span>学业之路</span></h2><p><span>可能你注意到了，在上面我并没有详细说明自己的学业。在初中阶段，我一直是班级课代表，成绩稳定在班级前列。虽然中考受到疫情影响，成绩略有波动，但我最终进入了区内一所重点高中就读。初中的光阴对我来说很值得怀念，少了一分小学时的调皮，多了一些稳重。</span></p><p><span>高中阶段我选择了物理、生物、地理组合，并进入了相对重点的班。在物理课上，我受到严格的教学，促使我更加专注，因此物理学习对我而言并不困难，我对解决物理问题充满兴趣。</span></p><p><span>高三时，尽管受到疫情影响，我在高考中仍考出了不错的成绩，并最终选择了自己热爱的计算机相关专业。高中期间，我的成绩一直保持在年级前列。</span></p><p><span>步入大学后，我在计算机基础课程上表现出色。大一和大二学年，我的专业排名和综合测评均名列前茅，并因此获得了两次校一等奖学金和一次校三好学生荣誉。我对一些与专业无关的课持保留态度，着重倾向于AI领域和以兴趣驱动的学习。但面对考研也不得不在寻找一种更好的平衡方式。</span></p><p><span>我坚信“上大学是你赶超别人的最佳时机，因为大部分人高考完就松了”。</span></p><p><span>我的项目屋&amp;本科阶段成就档案：</span><a href='https://www.smallbamboo.cn/projects/'><span>点击跳转</span></a></p><p><span>[未完待续]</span></p><p>&nbsp;</p><h2 id='自我探索之路'><span>自我探索之路</span></h2><p><span>一个INTP的自我探索之路：</span><a href='https://notes.smallbamboo.cn/the-self-exploration-journey-of-an-intp.html'><span>https://notes.smallbamboo.cn/the-self-exploration-journey-of-an-intp.html</span></a></p><p><span>关于我内心深处的荒诞：</span><a href='https://notes.smallbamboo.cn/the-absurdity-deep-in-my-heart.html'><span>https://notes.smallbamboo.cn/the-absurdity-deep-in-my-heart.html</span></a></p><p>&nbsp;</p><h2 id='尾声'><span>尾声</span></h2><p><span>这篇自我介绍就先写到这里了，如果你读到了这里，我真的会很感动，谢谢你有时间了解我。欢迎通过我的主页了解更多或联系我。</span></p><p><span>[未完待续]</span></p></div></div>
+<div id='write'  class=''><h1 id='关于我smallbamboo'><span>关于我：SmallBamboo</span></h1><p><span>当创建这个Markdown文档后，心中有些迟疑，其实我也不知道该怎么介绍自己。（更新日期：2026年4月6日）</span></p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=468176711&auto=0&height=66"></iframe><h2 id='简述'><span>简述</span></h2><p><span>你好，我是在河北的2022年冬奥会举办地长大的水瓶座男生，目前</span><code>{{datetime.now().year - 2005}}</code><span>岁，我我喜欢折腾各种有趣的东西一一无论是计算机、哲学和音乐，还是暂且未知的领域。身为</span><a href='https://notes.smallbamboo.cn/how-to-socialize-with-me-v3.html'><span>INTP-5w4 Sp/So Tritype594（也可能是543）</span></a><span>，我习惯于在输入和输出过程中不断修正和完善自我和成果。我可能体现出“高效”和“完美”的特质，但它们并不是目标本身。我不算外向，但喜欢与志同道合的人交流。理性是起点，理解才是目的。</span></p><p><img src="https://img.smallbamboo.cn/i/2025/05/09/681d81070b27f.jpg" alt="INTP.png"></p><p><span>以上图片比较有刻板印象，下面才是真实的我。</span></p><p><span>建立</span><a href='https://www.smallbamboo.cn/projects/'><span>这些网站</span></a><span>的初衷其实是为了逃离那很少被人了解和欣赏的现实，在这个繁杂的互联网世界中拥有一个展示自己的平台，也算是自己精心布置且会一直默默耕耘的一片心中花园吧。</span></p><h2 id='smallbamboo'><span>SmallBamboo？</span></h2><p><span>这个ID是最初购买Minecraft正版时选用的ID，那好像是初中时的事情了。目前小竹（SmallBamboo）这个昵称已经用了很久，之后也不会改变了。</span></p><p><span>为什么选择竹子？我小时在北方生活，见到竹子的频率很低，竹子一般分布于热带、亚热带至暖温带地区，而我生活的地方是温带大陆性季风气候。之所以选择竹子作为自己的昵称，只是欣赏它的美好的品质。</span></p><blockquote><p><span>竹身形挺直，宁折不弯，曰正直； 竹虽有竹节，却不止步，曰奋进； 竹外直中通，襟怀若谷，曰虚怀； 竹有花深埋，素面朝天，曰质朴；竹一生一花，死亦无悔，曰奉献； 竹玉竹临风，顶天立地，曰卓尔；竹虽曰卓尔，却不似松，曰善群； 竹质地犹石，方可成器，曰性坚；竹化作符节，苏武秉持，曰操守； 竹载文传世，任劳任怨，曰担当。</span></p><p><span>——《竹之十德》</span></p></blockquote><h2 id='计算机之缘'><span>计算机之缘</span></h2><p><span>从小学二年级开始，家里就买了台电脑。接触它的第一时间父亲就帮我注册了QQ，开通了QQ空间。从那时起我对计算机便有了最初的兴趣，我被其中很多小游戏吸引。我很乐于探索Windows系统，几乎任何可以点击交互的地方我都能研究一遍，之后由于轻信了刷Q币的套路，系统中病毒了（C盘被删了）。那时的我十分慌张，在家人帮助下重装了系统。从那时起，我开始学习和掌握计算机系统的维护知识。</span></p><p><span>这是我第一次接触到“重装系统”，为此我通过搜索很快就学会了重装系统的方法，正值当时Windows10刚刚发布，我就自己下载镜像，按照网上的教程做好了启动盘，把我的第一台电脑装上了Win10系统。</span></p><p><span>在小学阶段我对编程还没有认识和兴趣，只是很喜欢与同学联机玩Minecraft。由于当时Minecraft实况主比较流行，我也模仿他们，自学剪辑并在优酷上发布了一些与同学游玩的视频，这是我最初做自媒体的经历。</span></p><p><span>在初中阶段，通过在线平台我自学掌握了电脑硬件选购和组装知识。在家人支持下，我组装了我的第二台电脑，并自行升级了显卡以满足游戏需求。初中时，我在视频平台分享了一些自己剪辑和制作的Minecraft视频教程。那时我对计算机网络产生了兴趣，并学会了利用相关技术与同学联机游戏，甚至自行优化了家庭网络设备。</span></p><p><span>高中期间，我开始尝试搭建个人网站，并注册了域名。在建站过程中，我接触并学习了Linux服务器、MySQL数据库、PHP、HTML等技术。</span></p><p><span>高二寒假上网课时，我利用之前搭建网站的技术经验，对网课平台进行了技术研究，从而能够更高效地获取学习资源。</span></p><p><span>高三期间，我搭建并管理了家庭网络，并利用虚拟化技术架设了Minecraft游戏服务器。我还将服务器的闲置性能租赁给其他玩家，获得了一定的收益。</span></p><p><span>高考后，我开始做新的自媒体账号，专注于计算机软硬件评测，并尝试电商运营。我将之前的服务器租赁服务发展为一项个人创业项目，并在业务拓展过程中与合作伙伴共同管理。</span></p><p><span>我目前在河南一所大学攻读人工智能专业。大学期间，我积极参与社团活动并担任学生职务，在学业上取得了优异成绩，如在C语言考试中名列前茅，并在蓝桥杯省赛中获得省一等奖。我保持着高强度的学习热情，并自学了C++等编程语言。</span></p><p><span>从大一下学期开始，我加入了科研团队，专注于人工智能计算机视觉领域。我深入学习了语义分割，并选择了遥感图像语义分割作为主要研究方向。我积极进行模型改进和实验，并在指导老师的带领下参与了论文撰写和发表工作。</span></p><p><span>2025年，我将继续推进科研项目；申请软著；参与统计建模大赛，首次撰写中文论文；积极申请各类科研基金和创新项目均成功立项。我在暑假前期已经完成并初次投出第一篇SCI论文，在开学后不久投出第二篇SCI论文。26年3月初，第一篇SCI论文被录用。</span></p><p><span>[未完待续]</span></p><p>&nbsp;</p><h2 id='学业之路'><span>学业之路</span></h2><p><span>可能你注意到了，在上面我并没有详细说明自己的学业。在初中阶段，我一直是班级课代表，成绩稳定在班级前列。虽然中考受到疫情影响，成绩略有波动，但我最终进入了区内一所重点高中就读。初中的光阴对我来说很值得怀念，少了一分小学时的调皮，多了一些稳重。</span></p><p><span>高中阶段我选择了物理、生物、地理组合，并进入了相对重点的班。在物理课上，我受到严格的教学，促使我更加专注，因此物理学习对我而言并不困难，我对解决物理问题充满兴趣。</span></p><p><span>高三时，尽管受到疫情影响，我在高考中仍考出了不错的成绩，并最终选择了自己热爱的计算机相关专业。高中期间，我的成绩一直保持在年级前列。</span></p><p><span>步入大学后，我在计算机基础课程上表现出色。大一和大二学年，我的专业排名和综合测评均名列前茅，并因此连续两年获得校一等奖学金和一次校三好学生荣誉。我对一些与专业无关的课持保留态度，着重倾向于AI领域和以兴趣驱动的学习。但面对考研也不得不在寻找一种更好的平衡方式。</span></p><p><span>我坚信“上大学是你赶超别人的最佳时机，因为大部分人高考完就松了”。</span></p><p><span>我的项目屋&amp;本科阶段成就档案：</span><a href='https://www.smallbamboo.cn/projects/'><span>点击跳转</span></a></p><p><span>[未完待续]</span></p><p>&nbsp;</p><h2 id='自我探索之路'><span>自我探索之路</span></h2><p><span>一个INTP的自我探索之路：</span><a href='https://notes.smallbamboo.cn/the-self-exploration-journey-of-an-intp.html'><span>https://notes.smallbamboo.cn/the-self-exploration-journey-of-an-intp.html</span></a></p><p><span>关于我内心深处的荒诞：</span><a href='https://notes.smallbamboo.cn/the-absurdity-deep-in-my-heart.html'><span>https://notes.smallbamboo.cn/the-absurdity-deep-in-my-heart.html</span></a></p><p>&nbsp;</p><h2 id='尾声'><span>尾声</span></h2><p><span>这篇自我介绍就先写到这里了，如果你读到了这里，我真的会很感动，谢谢你有时间了解我。欢迎通过我的主页了解更多或联系我。</span></p><p><span>[未完待续]</span></p></div></div>
 </body>
 </html>
