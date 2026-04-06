@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>张嘉伟 - AI 算法工程师</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #1E3A8A;
+    --text: #1a1a1a;
+    --muted: #64748b;
+    --card-bg: #F8FAFC;
+    --border: #e2e8f0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans SC', sans-serif;
+    background: #e5e7eb;
+    color: var(--text);
+    font-size: 9pt;
+    line-height: 1.6;
+  }
+
+  @page { size: A4; margin: 0; }
+
+  @media print {
+    body { background: #fff; }
+    .page { box-shadow: none !important; margin: 0 !important; }
+  }
+
+  .page {
+    width: 794px;
+    height: 1123px;
+    margin: 20px auto;
+    padding: 30px 40px 26px 40px;
+    background: #fff;
+    box-shadow: 0 4px 24px rgba(0,0,0,.14);
+    overflow: hidden;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    margin-bottom: 11px;
+    padding-bottom: 11px;
+    border-bottom: 1.5px solid var(--border);
+  }
+
+  .header-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .name {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 24pt;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 4px;
+    line-height: 1.1;
+  }
+
+  .title-badge {
+    display: inline-block;
+    margin-top: 3px;
+    font-size: 9.5pt;
+    color: var(--primary);
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  .summary {
+    margin-top: 7px;
+    font-size: 8pt;
+    color: #374151;
+    line-height: 1.65;
+  }
+
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 16px;
+    margin-top: 9px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 7.8pt;
+    color: #374151;
+    text-decoration: none;
+  }
+  .contact-item svg { color: var(--primary); flex-shrink: 0; }
+
+  .photo-wrap {
+    flex-shrink: 0;
+    width: 86px;
+    aspect-ratio: 295 / 413;
+    align-self: center;
+    border-radius: 7px;
+    overflow: hidden;
+    border: 2px solid var(--border);
+  }
+  .photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 9px; }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 10.5pt;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 6px;
+    letter-spacing: 1.5px;
+  }
+  .section-title svg { color: var(--primary); flex-shrink: 0; }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 5px;
+  }
+
+  /* ── EDUCATION horizontal ── */
+  .edu-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+  .edu-left {
+    flex-shrink: 0;
+    width: 160px;
+    border-right: 1px solid var(--border);
+    padding-right: 14px;
+  }
+  .edu-right {
+    flex: 1;
+    padding-left: 16px;
+  }
+  .time-tag { font-size: 7.5pt; color: var(--muted); margin-bottom: 1px; }
+  .inst-name { font-size: 10pt; font-weight: 600; color: var(--text); margin-bottom: 1px; }
+  .degree { font-size: 8pt; color: #374151; margin-bottom: 4px; }
+  .gpa-badge {
+    display: inline-block;
+    background: #dbeafe;
+    color: var(--primary);
+    font-size: 7.5pt;
+    font-weight: 600;
+    padding: 1px 9px;
+    border-radius: 20px;
+  }
+  .course-label { font-size: 7.5pt; color: var(--muted); margin-bottom: 4px; }
+  .course-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px 6px;
+  }
+  .course-tag {
+    font-size: 7.5pt;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    line-height: 1.5;
+  }
+  .course-tag::before { content: "·"; color: var(--primary); font-weight: 700; }
+
+  /* ── TWO-COL ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+  /* ── SKILLS ── */
+  .skill-item { margin-bottom: 5px; }
+  .skill-cat { font-size: 8.5pt; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+  .skill-desc { font-size: 7.8pt; color: #374151; line-height: 1.55; }
+  .mini-divider { border: none; border-top: 1px solid var(--border); margin: 5px 0; }
+
+  /* ── PAPER ── */
+  .paper-title { font-size: 8.6pt; font-weight: 600; color: var(--text); margin-bottom: 4px; line-height: 1.4; }
+  .journal-tag {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 7.5pt; color: var(--primary);
+    background: #dbeafe; padding: 1px 8px; border-radius: 20px; margin-bottom: 5px;
+  }
+  .paper-point { font-size: 7.8pt; color: #374151; line-height: 1.55; margin-bottom: 2px; }
+  .paper-point::before { content: "·  "; color: var(--primary); font-weight: bold; }
+
+  /* ── FUND ── */
+  .fund-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 4px; }
+  .fund-name { font-size: 8.5pt; font-weight: 600; color: var(--text); line-height: 1.35; }
+  .fund-meta { display: flex; gap: 5px; flex-shrink: 0; align-items: center; }
+  .tag { font-size: 7pt; padding: 1px 7px; border-radius: 20px; font-weight: 500; white-space: nowrap; }
+  .tag-level { background: #fef3c7; color: #92400e; }
+  .tag-done  { background: #dcfce7; color: #166534; }
+  .tag-wip   { background: #dbeafe; color: var(--primary); }
+  .fund-desc { font-size: 7.8pt; color: #374151; line-height: 1.55; }
+
+  /* ── COMPETITION ── */
+  .comp-header { display: flex; align-items: center; gap: 7px; margin-bottom: 3px; flex-wrap: wrap; }
+  .comp-name { font-size: 8.5pt; font-weight: 600; color: var(--text); }
+  .award-tag { font-size: 7pt; background: #fef3c7; color: #92400e; padding: 1px 8px; border-radius: 20px; font-weight: 600; }
+  .comp-paper { font-size: 7.8pt; color: #374151; font-style: italic; margin-bottom: 3px; }
+  .comp-metrics { font-size: 7.8pt; color: #374151; line-height: 1.55; }
+
+  /* ── HONOR LIST ── */
+  .item-list { list-style: none; }
+  .item-list li {
+    font-size: 7.8pt;
+    color: #374151;
+    padding: 3px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    line-height: 1.4;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .item-list li:last-child { border-bottom: none; padding-bottom: 0; }
+  .item-list li .icon { color: var(--primary); flex-shrink: 0; }
+
+  /* ── SOFTWARE LIST ── */
+  .sw-list { list-style: none; }
+  .sw-list li {
+    font-size: 7.8pt;
+    color: #374151;
+    padding: 2px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    line-height: 1.5;
+    border-bottom: 1px solid var(--border);
+  }
+  .sw-list li:last-child { border-bottom: none; padding-bottom: 0; }
+  .sw-list li::before { content: "◆"; color: var(--primary); font-size: 6pt; margin-top: 3px; flex-shrink: 0; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══ HEADER ══ -->
+  <div class="header">
+    <div class="header-left">
+      <div>
+        <div class="name">张嘉伟</div>
+        <div class="title-badge">AI 算法工程师</div>
+      </div>
+      <p class="summary">
+        <b>人工智能专业</b>背景，具备扎实的机器学习与算法基础。主攻<b>计算机视觉（CV）与图像处理</b>，在<b>图像分类、图像分割</b>及轻量化模型方向有深入研究与实战经验。具备从文献调研、经典算法改进、SOTA 模型复现到 <b>SCI 论文撰写</b>及软著落地的全流程研发能力，具备优秀的英文文献阅读与撰写能力。
+      </p>
+      <div class="contact-row">
+        <a class="contact-item" href="tel:17550380128">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.72 12a19.79 19.79 0 0 1-3-8.63A2 2 0 0 1 3.74 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          175 5038 0128
+        </a>
+        <a class="contact-item" href="mailto:i@smallbamboo.cn">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          i@smallbamboo.cn
+        </a>
+        <a class="contact-item" href="https://github.com/SmallBambooCode" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          SmallBambooCode
+        </a>
+        <a class="contact-item" href="https://www.smallbamboo.cn" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          www.smallbamboo.cn
+        </a>
+      </div>
+    </div>
+    <div class="photo-wrap">
+      <img src="https://img.smallbamboo.cn/i/2026/04/06/69d346245bcc8.png" alt="张嘉伟">
+    </div>
+  </div>
+
+  <!-- ══ EDUCATION ══ -->
+  <div class="section">
+    <div class="section-title">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      教育背景
+    </div>
+    <div class="edu-card">
+      <div class="edu-left">
+        <div class="time-tag">2023.09 — 2027.06</div>
+        <div class="inst-name">南阳理工学院</div>
+        <div class="degree"><b>人工智能</b> · 本科</div>
+        <span class="gpa-badge">GPA <b>3.84</b> · 专业前 <b>3%</b></span>
+      </div>
+      <div class="edu-right">
+        <div class="course-label">相关课程</div>
+        <div class="course-grid">
+          <div class="course-tag">机器学习</div>
+          <div class="course-tag">数字图像处理</div>
+          <div class="course-tag">人工智能导论</div>
+          <div class="course-tag">计算机视觉</div>
+          <div class="course-tag">深度学习</div>
+          <div class="course-tag">自然语言处理</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SKILLS ══ -->
+  <div class="section">
+    <div class="section-title">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      职业技能
+    </div>
+    <div class="card">
+      <div class="two-col">
+        <div>
+          <div class="skill-item">
+            <div class="skill-cat">算法基础 (CV & ML)</div>
+            <div class="skill-desc">掌握<b>机器学习基本算法</b>（分类、回归、聚类等）；深入研究<b>图像处理与计算机视觉</b>，精通<b>图像分类、图像分割</b>及目标检测；掌握轻量化模型及多尺度特征融合模块设计。</div>
+          </div>
+          <hr class="mini-divider">
+          <div class="skill-item" style="margin-bottom:0;">
+            <div class="skill-cat">编程与工程语言</div>
+            <div class="skill-desc">熟悉并掌握 <b>C/C++</b> 与 <b>Python/Shell 脚本编程</b>；熟练使用 PyTorch 框架；具备 Linux 及容器化（Docker）环境部署与 Flask API 开发经验。</div>
+          </div>
+        </div>
+        <div>
+          <div class="skill-item">
+            <div class="skill-cat">实践与落地能力</div>
+            <div class="skill-desc">具备丰富的科研落地经验。作为核心成员<b>主导 2 项基金项目</b>（省级/校级）；获批<b>软件著作权 3 项</b>。能独立打通从 <b>SOTA 算法复现</b>、模型创新优化到系统开发与最终落地的实践闭环。</div>
+          </div>
+          <hr class="mini-divider">
+          <div class="skill-item" style="margin-bottom:0;">
+            <div class="skill-cat">学术与英语能力</div>
+            <div class="skill-desc">通过<b>英语 CET-6</b>，具备优秀的专业英语读写能力，能够独立完成全英文文献调研、实验设计及 <b>SCI 英文学术论文</b>的撰写与发表。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PAPER ══ -->
+  <div class="section">
+    <div class="section-title">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      高水平论文
+    </div>
+    <div class="card">
+      <div class="paper-title">ShiftingNet: Lightweight Crop Leaf Disease Classification Model with Channel-wise Feature Shifting</div>
+      <div style="margin-top:4px;">
+        <span class="journal-tag">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+          《Expert Systems》· SCI 期刊 (中科院四区)
+        </span>
+      </div>
+      <div class="paper-point"><b>研究方向：</b>深入研究<b>图像分类</b>与轻量化视觉模型，解决边缘设备图像处理的计算开销痛点。</div>
+      <div class="paper-point"><b>核心创新：</b>设计通道级特征偏移（CFS）模块，提出 ShiftingNet 架构优化通道间信息流动。</div>
+      <div class="paper-point"><b>个人贡献：</b>独立完成 C/C++ 与 Python 混合算法设计、模型训练及全英论文撰写；性能<b>超越参数量 15 倍</b>的最新 SOTA 模型。</div>
+    </div>
+  </div>
+
+  <!-- ══ FUND PROJECTS ══ -->
+  <div class="section">
+    <div class="section-title">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      主持基金项目
+    </div>
+    <div class="card" style="margin-bottom:6px;">
+      <div class="fund-header">
+        <div class="fund-name">土地覆盖智能量化系统：基于改进 ConvLSR-Net 的遥感图像处理与分割</div>
+        <div class="fund-meta">
+          <span class="tag tag-level">校级</span>
+          <span class="tag tag-done">主持 · 结项优秀</span>
+          <span style="font-size:7.5pt;color:var(--muted);white-space:nowrap;">2025.06</span>
+        </div>
+      </div>
+      <div class="fund-desc">提出自适应长短程 Transformer（ALSRFormer）及多尺度自适应特征融合等改进，构建 <b>ConvALSR-Net</b>，在复杂遥感场景的<b>图像处理与分割</b>上显著提升精度，并完成落地。</div>
+    </div>
+    <div class="card">
+      <div class="fund-header">
+        <div class="fund-name">基于改进 ConvLSR-Net 的耕地面积智能量化系统研发</div>
+        <div class="fund-meta">
+          <span class="tag tag-level">省级</span>
+          <span class="tag tag-wip">主持 · 已立项</span>
+          <span style="font-size:7.5pt;color:var(--muted);white-space:nowrap;">2025.06</span>
+        </div>
+      </div>
+      <div class="fund-desc">面向真实场景图像分析，引入非对称卷积、可变形卷积和通道注意力加权，增强对复杂形态的分割能力，开发并优化耕地智能评估体系。</div>
+    </div>
+  </div>
+
+  <!-- ══ COMPETITIONS ══ -->
+  <div class="section">
+    <div class="section-title">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+      算法实战与竞赛经历
+    </div>
+    <div class="card" style="margin-bottom:6px;">
+      <div class="comp-header">
+        <span class="comp-name">2025 全国大学生统计建模大赛</span>
+        <span class="award-tag">省级一等奖</span>
+        <span class="award-tag">国家级三等奖</span>
+      </div>
+      <div class="comp-paper">基于 UNetFormer 模型的复杂场景图像处理与自动分割评估</div>
+      <div class="comp-metrics">应用机器学习模型处理复杂城乡遥感图像，实现高精度轻量化识别：<b>mIoU 52.3%</b> · 参数量 <b>11.7M</b> · 推理速度 <b>115.3 FPS</b>。</div>
+    </div>
+    <div class="card">
+      <div class="comp-header" style="margin-bottom:0;">
+        <span class="comp-name">第十五届 / 十六届 蓝桥杯全国软件大赛 (C/C++ & Python)</span>
+        <span class="award-tag">省一 / 省二等奖</span>
+      </div>
+      <div class="comp-header" style="margin-top:5px;margin-bottom:0;">
+        <span class="comp-name">第六届全国高校计算机能力挑战赛</span>
+        <span class="award-tag">省级二等奖</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ BOTTOM ROW ══ -->
+  <div style="display:grid;grid-template-columns:230px 1fr;gap:10px;align-items:start;">
+
+    <!-- HONORS -->
+    <div class="section" style="margin-bottom:0;">
+      <div class="section-title">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+        在校经历
+      </div>
+      <div class="card">
+        <ul class="item-list">
+          <li>
+            <svg class="icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+            连续 2 年校级 <b>一等奖学金</b>
+          </li>
+          <li>
+            <svg class="icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            连续 2 年校级 <b>三好学生称号</b> 
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SOFTWARE -->
+    <div class="section" style="margin-bottom:0;">
+      <div class="section-title">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        软件著作权 (相关实践落地)
+      </div>
+      <div class="card">
+        <ul class="sw-list">
+          <li>基于 UNetFormer 的城市绿地智能图像提取算法软件</li>
+          <li>以伪标签相互学习网络为基础的智能图像诊断软件</li>
+          <li>基于改进 ConvLSR-Net 的土地覆盖图像处理与估算算法</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
