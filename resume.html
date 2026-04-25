@@ -101,20 +101,25 @@
   .contact-item svg { color: var(--primary); flex-shrink: 0; }
 
   .photo-wrap {
-    flex-shrink: 0;
-    width: 86px;
-    aspect-ratio: 295 / 413;
-    align-self: center;
-    border-radius: 7px;
-    overflow: hidden;
-    border: 2px solid var(--border);
+	flex-shrink: 0;
+	width: 86px;
+	aspect-ratio: 295 / 413;
+	align-self: center;
+	border-radius: 7px;
+	overflow: hidden;
+	border: 2px solid var(--border);
+	/* 下方为新增：居中排版与背景色 */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #EFF6FF; /* 柔和的浅蓝色背景 */
+	color: var(--primary); /* 使用全局主色调 */
   }
-  .photo-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-    display: block;
+
+  .photo-wrap svg {
+	width: 55%;
+	height: 55%;
+	opacity: 0.9;
   }
 
   /* ── SECTION ── */
@@ -255,6 +260,8 @@
   .sw-list li:last-child { border-bottom: none; padding-bottom: 0; }
   .sw-list li::before { content: "◆"; color: var(--primary); font-size: 6pt; margin-top: 3px; flex-shrink: 0; }
 </style>
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"Kfh95AfypnM1f4aE",ck:"Kfh95AfypnM1f4aE",autoTrack:true})</script>
 </head>
 <body>
 <div class="page">
@@ -292,9 +299,12 @@
         </a>
       </div>
     </div>
-    <div class="photo-wrap">
-      <img src="https://img.smallbamboo.cn/i/2026/04/06/69d37fe90a8e1.png" alt="SmallBamboo">
-    </div>
+	<div class="photo-wrap">
+	  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+		<circle cx="12" cy="7" r="4"></circle>
+	  </svg>
+	</div>
   </div>
 
   <!-- ══ EDUCATION ══ -->
