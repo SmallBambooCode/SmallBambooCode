@@ -24,13 +24,10 @@
         .slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: #000; cursor: pointer; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); transition: 0.2s; }
         .slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
 
-        .labels { display: flex; position: relative; height: 25px; font-size: 0.85em; color: #999; margin-top: 10px; }
-        .labels span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
-        .labels span:nth-child(1) { left: 0%; transform: translateX(0); }
-        .labels span:nth-child(2) { left: 25%; }
-        .labels span:nth-child(3) { left: 50%; }
-        .labels span:nth-child(4) { left: 75%; }
-        .labels span:nth-child(5) { left: 100%; transform: translateX(-100%); }
+        .labels {display:grid;grid-template-columns: 0.5fr 1fr 1fr 1fr 0.5fr;align-items:center;height:25px;font-size:0.85em;color:#999;margin-top:10px;padding:0 10px;}
+        .labels span {position:static;transform:none;white-space:nowrap;text-align:center;}
+        .labels span:nth-child(1) { text-align: left; }
+		.labels span:nth-child(5) { text-align: right; }
 
         .submit-btn { width: 100%; max-width: 350px; display: block; margin: 50px auto 0; padding: 16px; background: #000; color: white; border: none; border-radius: 50px; font-size: 1.1em; font-weight: 600; cursor: pointer; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
