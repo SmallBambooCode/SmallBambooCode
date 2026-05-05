@@ -6,8 +6,17 @@ I'm an undergraduate researcher in **Computer Vision**, specializing in **image 
 
 ### 🚀 Key Projects & Research Focus
 
-* **Intelligent Land Cover Quantification Systems (Lead Researcher):** Developing and improving remote sensing image segmentation models based on enhanced ConvLSR-Net.
-* **Ovarian Cancer Intelligent Diagnosis System:** Focused on ultrasound image segmentation using pseudo-label mutual learning networks.
+* **ShiftingNet: Lightweight Crop Leaf Disease Classification Model with Channel-wise Feature Shifting**  
+  Published in *Expert Systems* (CAS Q4), March 2026. DOI: https://doi.org/10.1111/exsy.70242
+
+* **Intelligent Land Cover Quantification System: Based on Improved ConvLSR-Net**  
+  Nanyang Institute of Technology Laboratory Open Fund Project, completed with **Excellent** evaluation in March 2026.
+
+* **Research and Development of Intelligent Quantification System for Cultivated Land Area Based on Improved ConvLSR-Net**  
+  Henan Province College Students' Innovation and Entrepreneurship Training Program Project, **approved and launched** in June 2025.
+
+* **Ovarian Cancer Intelligent Diagnosis System**  
+  Nanyang Institute of Technology Laboratory Open Fund Project, participated in, completed with **Good** evaluation in December 2024.
 
 ---
 
@@ -15,16 +24,20 @@ I'm an undergraduate researcher in **Computer Vision**, specializing in **image 
 
 * **Languages:** Python, C, C++
 * **AI Frameworks:** PyTorch, OpenCV, Flask
-* **Expertise:** Computer Vision (model re-implementation/improvement), Image Segmentation, Image Classification, Paper Writing.
+* **Expertise:** Computer Vision (model re-implementation/improvement), Image Segmentation, Image Classification, Paper Writing
 
 ---
 
 ### 🏆 Achievements & Recognition
 
 * **Provincial First Prize** in the 15th Lanqiao Cup (Programming Contest)
-* **National Finalist** in the 2025 National College Students Statistical Modeling Contest
-* **Software Copyrights:** Awarded for AI algorithms in urban green space extraction and ovarian cancer diagnosis.
-* More Achievements: [Click here](https://notes.smallbamboo.cn/undergraduate-achievements-archive/).
+* **Provincial Second Prize** in the 16th Lanqiao Cup (Programming Contest)
+* **National Third Prize** in the 2025 National College Students Statistical Modeling Contest
+* **Published paper:** *ShiftingNet: Lightweight Crop Leaf Disease Classification Model with Channel-wise Feature Shifting* in *Expert Systems* (March 2026)
+* **Project lead:** Intelligent Land Cover Quantification System based on improved ConvLSR-Net, **Excellent** (March 2026)
+* **Project lead:** Research and Development of Intelligent Quantification System for Cultivated Land Area Based on Improved ConvLSR-Net, **approved** (June 2025)
+* **Participated project:** Ovarian Cancer Intelligent Diagnosis System, **Good** (December 2024)
+* More Achievements: [Click here](https://notes.smallbamboo.cn/undergraduate-achievements-archive/)
 
 ---
 
